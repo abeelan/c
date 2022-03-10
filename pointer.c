@@ -17,10 +17,12 @@ int main() {
     void practice(void);
     void demo(void);
     void example(void);
+    void example1(void);
 
     practice();
     demo();
     example();
+    example1();
 }
 
 void pointer() {
@@ -85,4 +87,27 @@ void example(){
     printf("&a=%x, &b=%x\n", p1, p2);  // &a=e32750fc, &b=e32750f8
     printf("p1=%x, p2=%x\n", p1, p2);  // p1=e32750fc, p2=e32750f8
     printf("&p1=%x, &p2=%x\n", &p1, &p2);  // &p1=e32750f0, &p2=e32750e8；指针变量也是变量，通过 & 地址符也是取地址
+}
+
+void example1() {
+    // 将数从大到小输出
+    void swap(int *p1, int *p2);
+    int *p1, *p2;
+    int a = 6, b = 2;
+
+    p1 = &a;
+    p2 = &b;
+
+    if (a > b) {
+        swap(p1, p2);  // 址传递
+    }
+
+    printf("==> %d ==> %d\n", a, b);
+}
+
+void swap(int *p1, int *p2) {
+    int temp;
+    temp = *p1;  // 这里的值为址传递过来的值
+    *p1 = *p2;
+    *p2 = temp;
 }
